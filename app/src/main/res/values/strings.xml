@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Test</string>
+    <string name="app_name">Udemy courses</string>
     <string name="name">User name</string>
     <string name="password">Password</string>
     <string name="login">Login</string>

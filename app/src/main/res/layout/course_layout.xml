@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="85dp"
     android:layout_marginHorizontal="8dp"
     android:layout_marginTop="8dp"
     android:orientation="horizontal"
@@ -35,45 +35,27 @@
         android:layout_weight="0.6"
         android:background="@color/gray_background"
         android:orientation="vertical"
-        android:paddingHorizontal="12dp">
+        android:paddingHorizontal="12dp"
+        android:gravity="bottom">
 
         <TextView
             android:id="@+id/course_header"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="top"/>
 
-        <LinearLayout
+        <RatingBar
+            android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1" />
-
-        </LinearLayout>
+            style="?android:attr/ratingBarStyleSmall"
+            android:numStars="5"
+            android:stepSize="0.1"
+            android:isIndicator="true"
+            android:progressTint="#FDFA01"
+            android:secondaryProgressTint="#FDFA01"
+            android:layout_marginBottom="5dp"/>
 
     </LinearLayout>
 

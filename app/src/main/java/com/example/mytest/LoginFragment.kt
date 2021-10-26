@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.material.appbar.AppBarLayout
 
 class LoginFragment : Fragment() {
     override fun onCreateView(
@@ -32,6 +33,7 @@ class LoginFragment : Fragment() {
             if(userNameView.text.filterNot { it.isWhitespace() }.isNotEmpty() &&
                 passwordView.text.filterNot { it.isWhitespace() }.isNotEmpty()) {
                 progressBarLayout.visibility = View.VISIBLE
+                (activity as AppCompatActivity).findViewById<TextView>(R.id.action_bar_name).text = userNameView.text
                 increaseProgress(determinateBarView)
             }
         }
@@ -40,15 +42,15 @@ class LoginFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        (activity as AppCompatActivity).supportActionBar?.hide()
+        (activity as AppCompatActivity).findViewById<AppBarLayout>(R.id.my_toolbar).visibility = View.GONE
     }
 
     override fun onStop() {
         super.onStop()
-        (activity as AppCompatActivity?)!!.supportActionBar?.show()
+        (activity as AppCompatActivity).findViewById<AppBarLayout>(R.id.my_toolbar).visibility = View.VISIBLE
     }
 
-    private fun increaseProgress(view: ProgressBar, progress: Int = 1){
+    private fun increaseProgress(view: ProgressBar, progress: Int = 34){
         Handler(Looper.myLooper()!!).postDelayed({
             view.progress = progress
             if(progress <= 100){

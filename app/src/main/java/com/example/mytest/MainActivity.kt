@@ -9,7 +9,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setCurrentFragment(LoginFragment.newInstance())
+        if(savedInstanceState == null) {
+            setCurrentFragment(LoginFragment.newInstance())
+        }
     }
 
     private fun setCurrentFragment(fragment: Fragment) {

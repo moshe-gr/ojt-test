@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -19,6 +20,7 @@ class CourseAdapter(private val mList: List<CourseModel>) : RecyclerView.Adapter
         val itemsViewModel = mList[position]
         holder.courseHeader.setText(itemsViewModel.headerResource)
         holder.courseLogo.setImageResource(itemsViewModel.imgResource)
+        holder.courseRating.rating = itemsViewModel.rating
     }
 
     override fun getItemCount(): Int {
@@ -28,5 +30,6 @@ class CourseAdapter(private val mList: List<CourseModel>) : RecyclerView.Adapter
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val courseHeader: TextView = itemView.findViewById(R.id.course_header)
         val courseLogo: ImageView = itemView.findViewById(R.id.course_logo)
+        val courseRating : RatingBar = itemView.findViewById(R.id.rating)
     }
 }
