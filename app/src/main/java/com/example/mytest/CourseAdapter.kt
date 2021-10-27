@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 
-class CourseAdapter(private val mList: List<CourseModel>, private val courseData: CourseData) : RecyclerView.Adapter<CourseAdapter.ViewHolder>() {
+class CourseAdapter(private val mList: List<CourseModel>, private val courseDataListner: CourseDataListner) : RecyclerView.Adapter<CourseAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -24,7 +24,7 @@ class CourseAdapter(private val mList: List<CourseModel>, private val courseData
         holder.courseLogo.setImageResource(itemsViewModel.imgResource)
         holder.courseRating.rating = itemsViewModel.stars
         holder.courseLayout.setOnClickListener {
-            courseData.showCourseData(DescriptionFragment.newInstance(Gson().toJson(itemsViewModel)))
+            courseDataListner.showCourseData(DescriptionFragment.newInstance(Gson().toJson(itemsViewModel)))
         }
     }
 

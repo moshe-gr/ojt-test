@@ -13,12 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 
-class MainFragment : Fragment(), CourseData {
+class CoursesFragment : Fragment(), CourseDataListner {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_main, container, false)
+        val view = inflater.inflate(R.layout.fragment_courses, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerview)
         val nameView = view.findViewById<TextView>(R.id.action_bar_name)
 
@@ -59,7 +59,7 @@ class MainFragment : Fragment(), CourseData {
 
     companion object {
         @JvmStatic
-        fun newInstance() = MainFragment()
+        fun newInstance() = CoursesFragment()
     }
 
     override fun showCourseData(fragment: Fragment) {

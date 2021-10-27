@@ -2,6 +2,6 @@ package com.example.mytest
 
 import androidx.fragment.app.Fragment
 
-interface CourseData {
+interface CourseDataListner {
     fun showCourseData(fragment: Fragment)
 }

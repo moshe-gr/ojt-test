@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
             }
             else {
                 parentFragmentManager.beginTransaction().apply {
-                    replace(R.id.fl_wrapper, MainFragment.newInstance())
+                    replace(R.id.fl_wrapper, CoursesFragment.newInstance())
                     commit()
                 }
             }
