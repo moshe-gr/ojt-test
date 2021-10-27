@@ -1,5 +1,6 @@
 package com.example.mytest
 
+import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,7 +13,6 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.material.appbar.AppBarLayout
 
 class LoginFragment : Fragment() {
     override fun onCreateView(
@@ -33,21 +33,12 @@ class LoginFragment : Fragment() {
             if(userNameView.text.filterNot { it.isWhitespace() }.isNotEmpty() &&
                 passwordView.text.filterNot { it.isWhitespace() }.isNotEmpty()) {
                 progressBarLayout.visibility = View.VISIBLE
-                (activity as AppCompatActivity).findViewById<TextView>(R.id.action_bar_name).text = userNameView.text
                 increaseProgress(determinateBarView)
+                (activity as AppCompatActivity).getSharedPreferences("sharedPrefs", MODE_PRIVATE)
+                    .edit().putString("userName", userNameView.text.toString()).apply()
             }
         }
         return view
-    }
-
-    override fun onResume() {
-        super.onResume()
-        (activity as AppCompatActivity).findViewById<AppBarLayout>(R.id.my_toolbar).visibility = View.GONE
-    }
-
-    override fun onStop() {
-        super.onStop()
-        (activity as AppCompatActivity).findViewById<AppBarLayout>(R.id.my_toolbar).visibility = View.VISIBLE
     }
 
     private fun increaseProgress(view: ProgressBar, progress: Int = 34){
