@@ -1,4 +1,4 @@
-package com.example.mytest
+package com.example.ojtTest
 
 import android.content.Context
 import android.content.res.AssetManager

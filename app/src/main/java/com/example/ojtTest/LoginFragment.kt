@@ -1,4 +1,4 @@
-package com.example.mytest
+package com.example.ojtTest
 
 import android.content.Context.MODE_PRIVATE
 import android.os.Bundle
@@ -30,8 +30,7 @@ class LoginFragment : Fragment() {
         progressBarLayout.visibility = View.GONE
 
         loginButton.setOnClickListener {
-            if(userNameView.text.filterNot { it.isWhitespace() }.isNotEmpty() &&
-                passwordView.text.filterNot { it.isWhitespace() }.isNotEmpty()) {
+            if(validateUserInput(userNameView.text.toString(), passwordView.text.toString())) {
                 progressBarLayout.visibility = View.VISIBLE
                 increaseProgress(determinateBarView)
                 (activity as AppCompatActivity).getSharedPreferences("sharedPrefs", MODE_PRIVATE)
@@ -55,6 +54,10 @@ class LoginFragment : Fragment() {
             }
         }, 1000)
     }
+
+    fun validateUserInput(userName: String, password: String) =
+        userName.filterNot { it.isWhitespace() }.isNotEmpty() &&
+                password.filterNot { it.isWhitespace() }.isNotEmpty()
 
     companion object {
         @JvmStatic

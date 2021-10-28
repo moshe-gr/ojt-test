@@ -1,4 +1,4 @@
-package com.example.mytest
+package com.example.ojtTest
 
 import android.view.LayoutInflater
 import android.view.View
